@@ -1,0 +1,36 @@
+{{>header}}
+{{>entry}}
+    <div class="main-artist">
+        <div class="jinx-side">
+        </div>
+        <div class="container-artist">
+            <div class="photo-artist-debut">
+                <div class="profil-artist">
+                    <img src="{{artistaboutD.photo}}" alt="">
+                </div>
+                <div class="about-artist">
+                    <h3>{{artistaboutD.name}}</h3>
+                    <p>career :{{artistaboutD.year}}</p>
+                </div>
+            </div>
+            <div class="about-artist-2">
+                <h3>BIOGRAPHY</h3>
+                <p>{{artistaboutD.about}}</p>
+            </div>
+            <div class="more-artist-countainer">
+                <div class="more-artist-collum">
+                    <h3>MORE ARTIST</h3>
+                    <div class="more-artist-bottom">
+                        {{#each moreArtist}}
+                        <a href="/artist/about/{{this.id}}/{{this.artistUrl}}">
+                            <div class="hover-more-artist"></div>
+                            <img src="{{this.photoartist}}" alt="">
+                            <p>{{this.artist}}</p>
+                        </a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{>footer}}

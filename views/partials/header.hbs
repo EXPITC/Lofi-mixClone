@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/2/23/Lofi_girl_logo.jpg">
+    <link rel="stylesheet" href="/public/style/header-footer.css">
+    <link rel="stylesheet" href="/public/style/content-home.css">
+    <link rel="stylesheet" href="/public/style/artist.css">
+    <link rel="stylesheet" href="/public/style/login.css">
+    <link rel="stylesheet" href="/public/style/user.css">
+    <link rel="stylesheet" href="/public/style/artist-page.css">
+    <link rel="stylesheet" href="/public/style/musicabout.css">
+    <title>Lofi records!</title>
+  </head>
+  <body>
+    <header class="header-flex">
+        <div class="flex-start-header">
+            <div class="flex-center-header start">
+                <a href="/">
+                    <img src="https://cdn.shopify.com/s/files/1/0011/6005/2795/files/Sans_titre-2_5eb00952-6148-47a6-991b-0ffecdce826e_125x.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="flex-end-header">
+            <div class="flex-center-header end">
+                <a href="/artist">
+                    <li>ARTIST</li>
+                </a>
+                <a href="/music">
+                    <li>MUSIC</li>
+                </a>
+                <a href="/gendre">
+                    <li>GENDRE</li>
+                </a>
+                <a href="/playlist">
+                    <li>PLAYLIST</li>
+                </a>
+                {{#if isLogin}}
+                 <a href="http://127.0.0.1:5000/user">
+                    <li><img class="icon-user-header" src="/public/img/user-lofi.png" alt=""></li>
+                </a>
+                {{else}}
+                 <a href="" onclick="return false">
+                    <li><img class="icon-user-header" src="/public/img/user-lofi.png" alt=""></li>
+                </a>
+                {{/if}}
+                {{#if isLogin}}
+                <script>
+                    console.log('{{isLogin}}')
+                {{/if}}
+                </script>
+            </div>
+        </div>
+    </header>

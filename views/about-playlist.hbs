@@ -1,0 +1,72 @@
+{{>header}}
+{{>footer}}
+ <link rel="stylesheet" href="/public/style/playlist.css">
+<div class="containeraboutplaylist">
+        <div class="aboutplaylist">
+          <h3 class="op6">{{theplaylist.0.playlist}}</h3>
+          <p>{{username}}</p>
+          <p class="op5">Release Date: {{theplaylist.0.date}}</p>
+          <p >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="containersection2playlist">
+          <div class="previewimageplaylist">
+            <img src="http://127.0.0.1:5000/data/{{theplaylist.0.musicCover}}" alt="">
+          </div>
+          <div class="childimage">
+            {{#if own}}
+            {{#each theplaylist}}
+                <div class="rowonfile"> 
+                    <div class="imgsong">
+                      <img src="http://127.0.0.1:5000/data/{{this.musicCover}}" alt="">
+                      <p>{{this.musicName}}</p>
+                      <p>{{this.artist}}</p>
+                      <p>{{this.gendre}}</p>
+                    </div>
+                    <div class="song">
+                        <audio controls class="musicfile">
+                            <source src="http://127.0.0.1:5000/data/{{this.musicFile}}" type="audio/mpeg">
+                        </audio>
+                        <button class = "button-55"onclick="location.href='http://127.0.0.1:5000/playlist/delete/music/{{this.id}}'">delete</button>
+                    </div>
+                </div>
+            {{/each}}
+            {{else}}
+                {{#each theplaylist}}
+                 <div class="rowonfile"> 
+                    <div class="imgsong">
+                      <img src="http://127.0.0.1:5000/data/{{this.musicCover}}" alt="">
+                      <p>{{this.musicName}}</p>
+                      <p>{{this.artist}}</p>
+                      <p>{{this.gendre}}</p>
+                    </div>
+                    <div class="song">
+                        <div class="musicfile">
+                          <audio controls>
+                            <source src="http://127.0.0.1:5000/data/{{this.musicFile}}" type="audio/mpeg">
+                          </audio>                
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        {{#if own}} 
+        <div class="deleted">
+          <button class="button-24"onclick="location.href='http://127.0.0.1:5000/playlist/delete/{{theplaylist.0.id}}'">DELETE</button>
+        </div>
+        {{/if}}
+    <div class="container-list-playlist">
+      <h3 class="moreh3">MORE</h3>
+       {{#each playlistD2}}
+            <div class="container-list">
+               <a href="/playlist/about/{{this.ID}}/{{this.playlistUrl}}" >
+                    <div class="hover-new-release"></div>
+                    <img src="http://127.0.0.1:5000/data/{{this.cover}}" alt="">
+                    <p class="">{{this.playlist}}</p>
+                </a>
+            </div>
+           {{/each}}
+</div>
+    </div>
+{{>footer}}

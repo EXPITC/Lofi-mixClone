@@ -1,0 +1,92 @@
+{{>header}}
+{{#if isLogin}}
+{{else}}
+{{>entry}}
+{{/if}}
+<div class="forbttm">
+<div class="top-user">
+        <div class="icon-user-and-logout">
+            <img  id="imgpic" src="https://upload.wikimedia.org/wikipedia/en/2/23/Lofi_girl_logo.jpg" alt="">
+            <input  id="user-pic" name="userpic" type="file" hidden onchange="handle2()"/>
+            <button onclick="location.href='/logout'">LOGOUT</button>
+        </div>
+        <div class="name-about-user">
+            <h3 class="name-user">{{user.0.name}}</h3>
+            <p class="about-user">{{user.0.about}}</p>
+        </div>
+    </div>
+
+
+    <div class="upload-music">
+        <div class="bguploadmusic"></div>
+        <form action="/user/add-music" method="post" enctype="multipart/form-data">
+            <div class=""></div>
+            <label for="file-input">
+                <img id="coverMusic"class="add" src="/public/img/add.png"/>
+            </label>
+            <input id="file-input" name="img"type="file" hidden onchange="handle()"/>
+            <label for="music">
+                <img class="add" src="/public/img/music-note.png"/>
+            </label>
+            <input id="music" name="musiccc" type="file" hidden/>
+            <input id="title" name="title"type="text">
+            <select name="artist" onmousedown="if(this.options.length>8){this.size=8;}"  onchange='this.size=0;' onblur="this.size=0;">
+                <option value="null" disabled>artist</option>
+                <option value="null" hidden>artist</option>
+                {{#each artistD}}
+                <option value="{{this.id}}">The artist was {{this.artist}}</option>
+                {{/each}}
+            </select>
+            <select id="gendreselect" name="gendre" onmousedown="if(this.options.length>8){this.size=8;}"  onchange='this.size=0;' onblur="this.size=0;">
+                <option value="null" disabled>gendre</option>
+                <option value="null" hidden>gendre</option>
+                {{#each gendreD}}
+                <option value="{{this.id}}">This is select {{this.gendre}}</option>
+                {{/each}}
+            </select>
+            <button>submit</button>
+        </form>
+        <script>
+             function handle() {
+        let img = document.querySelector('#coverMusic')
+        const value = URL.createObjectURL(event.target.files[0])
+        img.src = `${value}`
+        console.log(`"${value}"`)
+        }
+        </script>
+    </div>
+
+
+    <div class="make-playlist">
+        <form action="playlist/add-playlist" method="post" name="addPlaylist">
+            <input id="playlist-title" name="playlist" type="text">
+            <input id="checkval" name="checkval" type="text" hidden>
+            <div class="flex-for-playlist">
+                <!-- repeat -->
+                {{#each musicD}}
+                <input class="themusic1" id="{{this.id}}" type="checkbox" value="{{this.id}}" name="check" hidden>
+                <label for="{{this.id}}" >
+                    <div class="blacklayer" onclick= "this.classList.toggle('mystyle');"></div>
+                    <img src="/data/{{this.coverMusic}}" alt="">
+                    <p>{{this.title}}</p>
+                </label>
+                {{/each}}
+                <script>
+                    let check = ""
+                    let x = document.getElementsByClassName('themusic1')
+                    let y = document.getElementById('checkval')
+                    function checck() {
+                        for(i = 0; i < x.length; i++) {
+                            if(x[i].checked){
+                                check += x[i].value+','
+                            }
+                        y.value = check
+                    }
+                }
+                    </script>
+            </div>
+            <button onclick="checck()" class="button-57">submit</button>
+        </form>
+    </div>
+</div>
+{{>footer}}

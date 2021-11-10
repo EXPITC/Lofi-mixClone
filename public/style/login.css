@@ -1,0 +1,336 @@
+.login{
+    display: none;
+    width: 0px;
+}
+
+.login.active {
+    display: block;
+    position: absolute;
+    background: white;
+    z-index: 1000;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    animation: ani 0.4s ease-in;
+    /* right: 30%; */
+}
+@keyframes ani {
+    0% {
+        right: -30%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+
+/* inside login */ 
+.login.active .login-cointainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    margin: 10px solid black;
+}
+.login.active .login-cointainer .lofi-girl-login{
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 10%;
+}
+.login.active .login-cointainer .x-button-login{
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    width: 5%;
+    top: 3%;
+    right: 3%;
+    position: absolute;
+    transform: translateZ(999);
+}
+.login.active .login-cointainer button {
+    margin-top: 3%;
+    width: 20vw;
+}
+
+.login.active .login-cointainer button  {
+  background: #2bff00;
+  border: 1px solid #2bff00;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.login.active .login-cointainer button:hover, .login.active .login-cointainer button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #2bff00;
+}
+
+.login.active .login-cointainer button:active {
+  opacity: .5;
+}
+.login.active .strip{
+    width: 80%;
+    text-align: center;
+    border-bottom: 0.2em solid black;
+    margin-bottom: 4%;
+}
+.login.active .strip p {
+    padding-top: 10%;
+    padding-bottom: 20%;
+}
+
+
+/* login2 */
+.login2{
+    display: none;
+    width: 0px;
+}
+
+.login2.active {
+    display: block;
+    position: absolute;
+    background: white;
+    z-index: 1000;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    animation: ani 0.4s ease-in;transform: all 0.4s ease-in ;
+    /* right: 30%; */
+}
+.login2.active .login-cointainer {
+    background-image: url("https://cdn.shopify.com/s/files/1/0011/6005/2795/files/16.9_6acaecd1-dd1c-411b-92ae-f34f5a8e9457.jpg?v=1630680498");
+    background-size: cover;
+    background-position: 50%;
+    transform: skewY(-50%);
+    background-repeat: no-repeat;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    margin: 10px solid black;
+}
+.login2.active form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70%;
+    justify-self: center;
+    align-items: center;
+    position: sticky;
+}
+.login2.active form input {
+    margin-bottom: 20px;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,1);
+    min-width: 250px;
+    padding-left: 5px;
+    outline: none;
+    color: rgb(255, 255, 255)
+}
+.login2.active form input::placeholder {
+    text-align: center;
+    color: white;
+}
+.login2.active .login-cointainer .x-button-login2{
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    width: 5%;
+    top: 3%;
+    right: 3%;
+    position: absolute;
+    transform: translateZ(999);
+}
+.login2.active .login-cointainer .dont-have-acc {
+    padding-top: 10px;
+    color: white;
+    cursor: default;
+}
+.login2.active .login-cointainer .singup-here {
+    color: #2bff00 !important;
+    cursor: pointer;
+}
+.login2.active .login-cointainer button {
+    margin-top: 3%;
+    width: 20vw;
+}
+
+.login2.active .login-cointainer button  {
+  background: #2bff00;
+  border: 1px solid #2bff00;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.login2.active .login-cointainer button:hover, .login.active .login-cointainer button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #2bff00;
+}
+
+.login2.active .login-cointainer button:active {
+  opacity: .5;
+}
+
+
+
+
+
+
+/* singup */ 
+.singup2{
+    display: none;
+    width: 0px;
+}
+
+.singup2.active {
+    display: block;
+    position: absolute;
+    background: white;
+    z-index: 1000;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    animation: ani 0.4s ease-in;
+    /* right: 30%; */
+}
+.singup2.active .singup2-cointainer {
+    background-image: url("https://cdn.shopify.com/s/files/1/0011/6005/2795/files/image_99e40d18-24dc-4cec-af93-7403b825edd0.png?v=1626424295");
+    background-size: cover;
+    background-position: 50%;
+    transform: skewY(-50%);
+    background-repeat: no-repeat;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    margin: 10px solid black;
+}
+.singup2.active form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70%;
+    justify-self: center;
+    align-items: center;
+    position: sticky;
+}
+.singup2.active form input {
+    margin-bottom: 20px;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,1);
+    min-width: 250px;
+    padding-left: 5px;
+    outline: none;
+    color: rgb(255, 255, 255)
+}
+.singup2.active form input::placeholder {
+    text-align: center;
+    color: white;
+}
+.singup2.active .singup2-cointainer .x-button-singup2{
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    width: 5%;
+    top: 3%;
+    right: 3%;
+    position: absolute;
+    transform: translateZ(999);
+}
+.singup2.active .singup2-cointainer .already-have-acc {
+    padding-top: 10px;
+    color: white;
+    cursor: default;
+}
+.singup2.active .singup2-cointainer .login-here{
+    color: #2bff00 !important;
+    cursor: pointer;
+}
+.singup2.active .singup2-cointainer button {
+    margin-top: 3%;
+    width: 20vw;
+}
+
+.singup2.active .singup2-cointainer button  {
+  background: #2bff00;
+  border: 1px solid #2bff00;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.singup2.active .singup2-cointainer button:hover, .singup2.active .singup2-cointainer button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #2bff00;
+}
+
+.singup2.active .singup2-cointainer button:active {
+  opacity: .5;
+}

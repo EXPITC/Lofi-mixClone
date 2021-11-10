@@ -1,0 +1,43 @@
+{{#if isLogin}}
+<div></div>
+{{else}}
+    <div class="singup2">
+        <div class="singup2-cointainer">
+            <img class="x-button-singup2" src="/public/img/close.png" alt="">
+            <form action="/register" method="POST">
+                <input type="text" name="name" placeholder="name">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <button class="btnsingup2">SINGUP</button>
+            </form>
+                <p class="already-have-acc">don't have any acc? </p>
+                <p class="login-here" >login here!</p>
+        </div>
+    </div>
+    <div class="login2">
+        <div class="login-cointainer">
+            <img class="x-button-login2" src="/public/img/close.png" alt="">
+            <form action="/login" method="post">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <button class="btnlogin2">LOGIN</button>
+            </form>
+                <p class="dont-have-acc">don't have any acc? </p>
+                <p class="singup-here" >singup here!</p>
+        </div>
+    </div>
+    <div class="login">
+        <div class="login-cointainer">
+            <img class="x-button-login" src="/public/img/close.png" alt="">
+            <img class="lofi-girl-login" src="https://cdn.shopify.com/s/files/1/0432/5133/5319/files/maxresdefault_db65077f-814d-4d4f-9add-56ba17bd9711.png" alt="">
+            <div class="strip">
+                <p>
+                    To download this track, please log in or sign up for a free account.
+                </p>
+            </div>
+            <button class="btnlogin">LOGIN</button>
+            <button class="btnsingup">SINGUP</button>
+        </div>
+    </div>
+    <script src="/public/js/login.js"></script>
+{{/if}}

@@ -1,0 +1,229 @@
+{{>header}}
+{{>entry}}
+
+    <div class="maincontainer-aboutmusic">
+        <div class="secondcontaineraboutmusic">
+            <div class="containeroneaboutmusic">
+                <form action="http://127.0.0.1:5000/music/update/{{musicD.[0].id}}" method="post" enctype="multipart/form-data">
+                    <input type="file" id="newimgaboutmusic" name="newimgaboutmusic" onchange="handle()" hidden>
+                    <input type="file" id="newaudioaboutmusic" name="newaudioaboutmusic" onchange="handle2()" hidden>
+                    <input type="text" id="titlemusicaboutmusic" name="titlemusicaboutmusic" value="{{musicD.[0].title}}" hidden>
+                    {{!-- <input type="text" name="defaulttitle" value="{{musicD.[0].title}}" > --}}
+                    <input type="text" name="defaultgendre" value="{{musicD.[0].gendre}}" hidden>
+                    <input type="text" name="defaultartist" value="{{musicD.[0].artist}}" hidden>
+                <label id="label1">
+                    <h3>{{musicD.[0].title}}</h3>
+                </label>
+                <select id="artistmusicaboutmusic" name="artistmusicaboutmusic" onmousedown="if(this.options.length>8){this.size=8;}"  onchange='this.size=0;' onblur="this.size=0;" hidden>
+                    <option value="null" disabled>artist</option>
+                    <option value="{{musicD.[0].artist}}" hidden selected>{{artistname}}</option>
+                    {{#each artistD}}
+                    <option value="{{this.id}}">The artist was {{this.name}}</option>
+                    {{/each}}
+                </select>
+                <label id="label2">
+                    <p>{{artistname}}</p>
+                </label>
+                <select id="gendreselect" name="gendre" onmousedown="if(this.options.length>8){this.size=8;}"  onchange='this.size=0;' onblur="this.size=0;" hidden>
+                    <option value="null" disabled>gendre</option>
+                    <option value="{{music.[0].gendre}}" hidden>{{idgendre}}</option>
+                    {{#each gendreD}}
+                    <option value="{{this.id}}">This is select {{this.gendre}}</option>
+                    {{/each}}
+                </select>
+                <label id="label3" for="gendre">
+                    <p>{{idgendre}}</p>
+                </label>
+                <p id="date">Release Date: {{musicD.[0].date}}</p>
+                <input type="text" name="defaultimg" value="{{musicD.[0].cover}}" hidden>
+                <input type="text" name="defaultmusic" value="{{musicD.[0].musicFile}}" hidden>
+            </div>
+            {{#if own}}
+            <div class="containertwoaboutmusic">
+                <label id = "imgmusicabout"  >
+                    <img id = "imgonmusicabout" src="http://127.0.0.1:5000/data/{{musicD.[0].cover}}" alt="">
+                </label>
+                <div class="lofidisk" id>
+                    <div class="x"></div>
+                    <div class="y"></div>
+                    <div class="z"></div>
+                </div>
+                <div class="audiomusicandbuttonnew">
+                    <audio id="themusicaboutmusic"controls preload="metadata">
+                        <source id="theauudio" src="http://127.0.0.1:5000/data/{{musicD.[0].musicFile}}" type="audio/ogg">
+                    </audio>
+                    <button id="tolocation" class="btnlogin2 costumbtn3" style="display: none;">UPDATE</button>
+                    </form>
+                    {{!-- onclick="location.href = 'http://127.0.0.1:5000/music/update/{{musicD.[0].id}}'" --}}
+                    <button id="newformusic" class="costumebtn4" hidden><label for="newaudioaboutmusic">NEW MUSIC</label</button>
+                    <button id="play" class="costumebtn" >EDIT</button>
+                    <button id="delete" class="costumbtn5" onclick="location.href = 'http://127.0.0.1:5000/music/deleted/{{musicD.[0].id}}'">DELETED</button>
+                    <button id="cancell" class="costumebtn2" hidden>CANCEL</button>
+                </div>
+            </div>
+            <script>
+                img = document.querySelector('.containertwoaboutmusic')
+                img2 = document.querySelector('#imgmusicabout')
+                newbtn= document.querySelector('#newformusic')
+                edit = document.querySelector('#play')
+                cancel = document.querySelector('#cancell')
+                player = document.querySelector('audio');
+                y = document.querySelector('.y');
+                lable1 = document.querySelector('#label1')
+                lable2 = document.querySelector('#label2')
+                lable3 = document.querySelector('#label3')
+                update = document.querySelector('#tolocation')
+                input1 = document.querySelector('#titlemusicaboutmusic')
+                input2 = document.querySelector('#artistmusicaboutmusic')
+                input3 = document.querySelector('#gendreselect')
+                img3 = document.querySelector('#imgonmusicabout')
+                audiosrc = document.querySelector('#theauudio')
+                player = document.querySelector('audio');
+                y = document.querySelector('.y');
+                // img3.onchange = () => {
+                //     img3.setAttribute
+                // }
+                function handle() {
+                console.log(event.target.files)
+                const value = URL.createObjectURL(event.target.files[0])
+                img3.src = `${value}`
+                console.log(value)
+                }
+                function handle2() {
+                console.log(event.target.files)
+                    const value = URL.createObjectURL(event.target.files[0])
+                    audiosrc.src = `${value}`
+                    console.log(value)
+                    player.load()
+                }
+                function rerender(){
+                    lable1.onclick = () =>{
+                    console.log('check');
+                    lable1.setAttribute("hidden", true);
+                    input1.removeAttribute("hidden");
+                }
+                    lable2.onclick = () =>{
+                    lable2.setAttribute("hidden", true);
+                    input2.removeAttribute("hidden");
+                }
+                    lable3.onclick = () =>{
+                    lable3.setAttribute("hidden", true);
+                    input3.removeAttribute("hidden");
+                }
+                }
+                
+                lofidisk = document.querySelector('.lofidisk')
+                edit.onclick = () => {
+                    img2.setAttribute('for',"newimgaboutmusic")
+                    label1.setAttribute('for',"titlemusicaboutmusic")
+                    label2.setAttribute('for',"artistmusicaboutmusic")
+                    label3.setAttribute('for',"gender")
+                    newbtn.removeAttribute('hidden')
+                    cancel.removeAttribute('hidden')
+                    edit.removeAttribute('id')
+                   
+                    update.style.display = "block"
+                    edit.setAttribute('hidden', true)
+                    rerender()
+                }
+                cancel.onclick =() => {
+                    img2.removeAttribute('for')
+                    label1.removeAttribute('for')
+                    label2.removeAttribute('for')
+                    label3.removeAttribute('for')
+                    img3.src = `http://127.0.0.1:5000/data/{{musicD.[0].cover}}`
+                    audiosrc.src = `http://127.0.0.1:5000/data/{{musicD.[0].musicFile}}`
+                    player.load()
+                    input1.setAttribute('hidden',true)
+                    input2.setAttribute('hidden',true)
+                    input3.setAttribute('hidden',true)
+                    update.style.display = "none"
+                    label1.removeAttribute('hidden')
+                    label2.removeAttribute('hidden')
+                    label3.removeAttribute('hidden')
+                    newbtn.setAttribute('hidden',true)
+                    // rerender()
+                    cancel.setAttribute('hidden',true)
+                    update.setAttribute('hidden',true)
+                    edit.removeAttribute('hidden')
+                }
+                
+                lofidisk = document.querySelector('.lofidisk');
+                img = document.querySelector('.containertwoaboutmusic');
+                y.style.background = `url(http://127.0.0.1:5000/data/{{musicD.[0].cover}})`;
+                player.onplay = function() {
+                    lofidisk.classList.remove('active')
+                    lofidisk.classList.add('active2')
+                    img.classList.add('active')
+                    lofidisk.style.display= 'flex'
+                    lofidisk.style.animationPlayState = ''
+                    lofidisk.style.AnimationPlayState = 'running'
+                }
+                player.onpause = ()=> {
+                    lofidisk.style.animationPlayState = 'paused'
+                }
+                player.onended = function() {
+                    player.pause();
+                    lofidisk.classList.add('active')
+                    img.classList.remove('active')
+                }
+            </script>
+            <div class="containerthreeaboutmusic"></div>
+        </div>
+        {{else}}
+            <div class="containertwoaboutmusic">
+                <label id = "imgmusicabout"  >
+                    <img id = "imgonmusicabout" src="http://127.0.0.1:5000/data/{{musicD.[0].cover}}" alt="">
+                </label>
+                <div class="lofidisk" id>
+                    <div class="x"></div>
+                    <div class="y"></div>
+                    <div class="z"></div>
+                </div>
+                <div class="audiomusicandbuttonnew">
+                    <audio id="themusicaboutmusic"controls preload="metadata">
+                        <source src="http://127.0.0.1:5000/data/{{musicD.[0].musicFile}}" type="audio/ogg">
+                    </audio>
+                </div>
+            </div>
+            <script>
+                player = document.querySelector('audio');
+                lofidisk = document.querySelector('.lofidisk');
+                img = document.querySelector('.containertwoaboutmusic');
+                y = document.querySelector('.y');
+                y.style.background = `url(http://127.0.0.1:5000/data/{{musicD.[0].cover}})`;
+                player.onplay = function() {
+                    lofidisk.classList.remove('active')
+                    lofidisk.classList.add('active2')
+                    img.classList.add('active')
+                    lofidisk.style.display= 'flex'
+                    lofidisk.style.animationPlayState = ''
+                    lofidisk.style.AnimationPlayState = 'running'
+                }
+                player.onpause = ()=> {
+                    lofidisk.style.animationPlayState = 'paused'
+                }
+                player.onended = function() {
+                    player.pause();
+                    lofidisk.classList.add('active')
+                    img.classList.remove('active')
+                }
+            </script>
+            <div class="containerthreeaboutmusic"></div>
+        </div>
+        {{/if}}
+    <div class="container-list-musicabout">
+      <h3 class="moreh3">MORE</h3>
+       {{#each music4D}}
+            <div class="container-list">
+               <a href="/music/{{this.id}}" >
+                    <div class="hover-new-release"></div>
+                    <img src="http://127.0.0.1:5000/data/{{this.cover}}" alt="">
+                    <p class="">{{this.title}}</p>
+                </a>
+            </div>
+        {{/each}}
+        </div>
+    </div>
+
+{{>footer}}
