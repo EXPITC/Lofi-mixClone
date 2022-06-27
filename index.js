@@ -149,8 +149,8 @@ const toDatabase = ((query) => {
     if (err) throw err;
     conn.query(query)
     // console.log(toPages)
+    dbConnection.releaseConnection(conn)
   })
-  dbConnection.releaseConnection(conn)
 })
 // listen port
 app.listen(port, hostname, () => {
